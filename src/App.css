@@ -1,38 +1,228 @@
-.App {
-  text-align: center;
+
+:root {
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --accent: #10b981;
+  --muted: #444444;
+  --success: #b910107a;
+  --danger: #ef4444;
+  --radius: 14px;
+  font-family: 'Inter', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  background: #353535;
+  color: #111827;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.todo-app {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-container {
+  width: 100%;
+  max-width: 800px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.4);
+  padding: 28px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-task {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: #f0fdf4;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+}
+
+.add-task input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #111827;
+  font-size: 15px;
+}
+
+.btn-primary {
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+  transition: 0.2s;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search {
+  flex: 1;
+  border: none;
+  background: #f0fdf4;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: #111827;
+  outline: none;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.filter {
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.filter.active {
+  background: #d1fae5;
+  color: var(--accent);
+  border-color: #10b981;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #d1fae5;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+  transition: 0.2s;
+}
+
+.todo-item:hover {
+  background: #f0fdf4;
+}
+
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: var(--success);
+}
+.completed{
+  box-shadow: 0 4px 10px var(--success);
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #10b981;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkbox.checked {
+  background: var(--success);
+  border: 1px solid #b9101000;
+}
+.todo-item input {
+  
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+
+}
+.actions button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #6b7280;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  color: var(--accent);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  color: var(--muted);
+}
+
+.btn-clear {
+  background: transparent;
+  border: 1px solid var(--danger);
+  color: var(--danger);
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-clear:hover {
+  background: var(--danger);
+  color: #fff;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px;
+  background: #f0fdf4;
+  border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+  .controls {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+  .tools {
+    flex-direction: column;
   }
 }
